@@ -4,13 +4,12 @@ LICENSE = "CLOSED"
 
 PV = "1.0"
 
-S = "${WORKDIR}"
 
-SRC_URI = "file://helloworld.c \
-           file://CMakeLists.txt \
+SRC_URI = "git://github.com/wakeLanaka/homesensors_code.git;protocol=https;branch=main \
            file://helloworld.service"
+SRCREV = "${AUTOREV}"
 
-DEPENDS += "libgpiod-dev"
+S = "${WORKDIR}/git"
 
 inherit pkgconfig cmake systemd
 OECMAKE_TARGET = "all"
